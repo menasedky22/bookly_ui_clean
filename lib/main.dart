@@ -1,13 +1,14 @@
 import 'package:bookly/constants.dart';
 import 'package:bookly/core/utils/app_router.dart';
+import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'Features/Splash/presentation/views/splash_view.dart';
-
 void main() {
-  runApp(const Bookly());
+  runApp(DevicePreview(
+    enabled: true,
+    builder: (context) => const Bookly(),
+  ));
 }
 
 class Bookly extends StatelessWidget {
@@ -16,6 +17,8 @@ class Bookly extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
+      locale: DevicePreview.locale(context),
+      builder: DevicePreview.appBuilder,
       routerConfig: AppRouter.router,
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark().copyWith(
