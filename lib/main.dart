@@ -6,6 +6,7 @@ import 'package:bookly/Features/home/presentation/manger/featured_books_cubit/fe
 import 'package:bookly/Features/home/presentation/manger/newest_books_cubit/newest_books_cubit.dart';
 import 'package:bookly/constants.dart';
 import 'package:bookly/core/utils/app_router.dart';
+import 'package:bookly/core/utils/simple_bloc_observer.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -21,6 +22,8 @@ void main() async {
 
   await Hive.openBox<BookEntity>(kFeaturedBox);
   await Hive.openBox<BookEntity>(kNewestBox);
+
+  Bloc.observer = SimpleBlocObserver();
 
   runApp(DevicePreview(
     enabled: true,
