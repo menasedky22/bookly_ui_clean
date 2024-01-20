@@ -1,5 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.clean_arch_bookly_app">
+    
+    <uses-permission android:name="android.permission.INTERNET" />
+    
    <application
         android:label="clean_arch_bookly_app"
         android:name="${applicationName}"
