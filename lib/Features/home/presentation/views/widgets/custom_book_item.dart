@@ -11,7 +11,8 @@ class CustomBookImage extends StatelessWidget {
       child: ClipRRect(
         borderRadius: BorderRadius.circular(16),
         child: CachedNetworkImage(
-          imageUrl: image,
+          imageUrl:
+              'https://fastly.picsum.photos/id/863/200/300.jpg?hmac=4kin1N4a7dzocUZXCwLWHewLobhw1Q6_e_9E3Iy3n0I',
           fit: BoxFit.fill,
         ),
       ),
