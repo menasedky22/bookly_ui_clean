@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:bookly/Features/home/data/repos/home_repo_impl.dart';
 import 'package:bookly/Features/home/domain/entities/book_entity.dart';
 import 'package:bookly/Features/home/domain/use_cases/fetch_featured_books_use_case.dart';
@@ -14,7 +12,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hive_flutter/adapters.dart';
-import 'package:connectivity/connectivity.dart';
 
 import 'core/utils/setup_service_locator.dart';
 
@@ -28,19 +25,19 @@ void main() async {
 
   Bloc.observer = SimpleBlocObserver();
 
-  Connectivity connectivity = Connectivity();
+  // Connectivity connectivity = Connectivity();
 
-  // Get the current connectivity status
-  ConnectivityResult result = await connectivity.checkConnectivity();
+  // // Get the current connectivity status
+  // ConnectivityResult result = await connectivity.checkConnectivity();
 
-  // Print the result
-  log(result.toString());
+  // // Print the result
+  // log(result.toString());
 
-  // Subscribe to connectivity changes
-  connectivity.onConnectivityChanged.listen((ConnectivityResult result) {
-    // Print the result
-    log(result.toString());
-  });
+  // // Subscribe to connectivity changes
+  // connectivity.onConnectivityChanged.listen((ConnectivityResult result) {
+  //   // Print the result
+  //   log(result.toString());
+  // });
 
   runApp(DevicePreview(
     enabled: true,

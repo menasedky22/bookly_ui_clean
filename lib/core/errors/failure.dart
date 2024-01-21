@@ -20,7 +20,7 @@ class ServerFailure extends Failure {
         return ServerFailure('Bad Certificate with Api server');
       case DioExceptionType.badResponse:
         return ServerFailure.fromResponse(
-            e.response!.statusCode, e.response!.data);
+            e.response!.statusCode!, e.response!.data);
 //
       case DioExceptionType.cancel:
         return ServerFailure('Request to API was canceled');
@@ -30,16 +30,15 @@ class ServerFailure extends Failure {
         return ServerFailure('Opps there was an error Plz try again later');
     }
   }
-
-  factory ServerFailure.fromResponse(int? statusCode, dynamic response) {
-    if (statusCode == 400 || statusCode == 401 || statusCode == 403) {
-      return ServerFailure(response['error']['message']);
-    } else if (statusCode == 404) {
-      return ServerFailure('Your request not found, Please try later!');
+  factory ServerFailure.fromResponse(int statusCode, dynamic response) {
+    if (statusCode == 404) {
+      return ServerFailure('Your request was not found, please try later');
     } else if (statusCode == 500) {
-      return ServerFailure('Internal Server error, Please try later');
+      return ServerFailure('There is a problem with server, please try later');
+    } else if (statusCode == 400 || statusCode == 401 || statusCode == 403) {
+      return ServerFailure(response['error']['message']);
     } else {
-      return ServerFailure('Opps There was an Error, Please try again');
+      return ServerFailure('There was an error , please try again');
     }
   }
 }
