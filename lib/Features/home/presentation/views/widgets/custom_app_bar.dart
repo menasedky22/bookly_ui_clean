@@ -20,13 +20,14 @@ class CustomAppBar extends StatelessWidget {
           ),
           const Spacer(),
           IconButton(
-              onPressed: () {
-                GoRouter.of(context).push(AppRouter.kSearchView);
-              },
-              icon: const Icon(
-                FontAwesomeIcons.magnifyingGlass,
-                size: 22,
-              ))
+            onPressed: () {
+              GoRouter.of(context).push(AppRouter.kSearchView);
+            },
+            icon: const Icon(
+              FontAwesomeIcons.magnifyingGlass,
+              size: 22,
+            ),
+          )
         ],
       ),
     );
