@@ -2,7 +2,7 @@ import 'package:bookly/Features/home/presentation/manger/featured_books_cubit/fe
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'featured_list_view.dart';
+import 'featured_book_list_view.dart';
 
 class FeaturedBooksListViewBlockBuilder extends StatelessWidget {
   const FeaturedBooksListViewBlockBuilder({
